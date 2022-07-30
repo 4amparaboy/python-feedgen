@@ -317,8 +317,6 @@ class FeedEntry(object):
                 updated = dateutil.parser.parse(updated)
             if not isinstance(updated, datetime):
                 raise ValueError('Invalid datetime format')
-            if updated.tzinfo is None:
-                raise ValueError('Datetime object has no timezone info')
             self.__atom_updated = updated
             self.__rss_lastBuildDate = updated
 
@@ -589,8 +587,6 @@ class FeedEntry(object):
                 published = dateutil.parser.parse(published)
             if not isinstance(published, datetime):
                 raise ValueError('Invalid datetime format')
-            if published.tzinfo is None:
-                raise ValueError('Datetime object has no timezone info')
             self.__atom_published = published
             self.__rss_pubDate = published
 

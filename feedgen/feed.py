@@ -465,8 +465,6 @@ class FeedGenerator(object):
                 updated = dateutil.parser.parse(updated)
             if not isinstance(updated, datetime):
                 raise ValueError('Invalid datetime format')
-            if updated.tzinfo is None:
-                raise ValueError('Datetime object has no timezone info')
             self.__atom_updated = updated
             self.__rss_lastBuildDate = updated
 
@@ -890,8 +888,6 @@ class FeedGenerator(object):
                 pubDate = dateutil.parser.parse(pubDate)
             if not isinstance(pubDate, datetime):
                 raise ValueError('Invalid datetime format')
-            if pubDate.tzinfo is None:
-                raise ValueError('Datetime object has no timezone info')
             self.__rss_pubDate = pubDate
 
         return self.__rss_pubDate
